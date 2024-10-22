@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="background-image">
+        <div class="overlay"> <!-- Make sure the overlay is positioned properly -->
+            <div class="container">
+                <h1>Weather Information</h1>
+                <form method="GET" action="">
+                    <input type="text" name="city" placeholder="Enter city name" required>
+                    <button type="submit">Get Weather</button>
+                </form>
+
+                <div id="weather-result">
+                    {% if weather_data %}
+                        <h2>Weather in {{ weather_data.city }}</h2>
+                        <p>Temperature: {{ weather_data.temperature }} °C</p>
+                        <p>Description: {{ weather_data.description }}</p>
+                        <img src="http://openweathermap.org/img/wn/{{ weather_data.icon }}.png" alt="Weather icon">
+                    {% elif weather_data.error %}
+                        <p class="error">{{ weather_data.error }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Clear weather data from session on page refresh
+        window.addEventListener('beforeunload', function () {
+            fetch('/clear-weather-data/', { method: 'POST', credentials: 'same-origin' });
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,54 @@
+.background-image {
+    background-image: url('{% static "image/image.jpg" %}'); /* Path to your background image */
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the background image */
+    height: 100vh; /* Full viewport height */
+    display: flex; /* Enable flexbox layout */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    position: relative; /* Position relative for the overlay */
+}
+
+.overlay {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for readability */
+    padding: 20px; /* Padding inside the overlay */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    display: flex; /* Enable flexbox for the overlay */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+form {
+    margin: 20px 0; /* Space between forms */
+    display: flex; /* Flexbox layout for form items */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+/* Optional: Style for input fields and buttons */
+input[type="text"] {
+    padding: 10px; /* Padding for input fields */
+    margin-bottom: 10px; /* Space below input fields */
+    width: 100%; /* Full width */
+    max-width: 300px; /* Max width for input fields */
+    border: 1px solid #ccc; /* Border style */
+    border-radius: 5px; /* Rounded corners */
+}
+
+button {
+    padding: 10px 20px; /* Padding for button */
+    border: none; /* Remove default border */
+    background-color: #007bff; /* Button background color */
+    color: white; /* Button text color */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker background on hover */
+}
+
+#error {
+    color: red; /* Style for error messages */
+}
